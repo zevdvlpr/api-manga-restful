@@ -1,5 +1,5 @@
 {
-  "name": "manga",
+  "name": "micro-services",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -107,6 +107,7 @@
     }
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^3.3.1",
     "got": "^11.8.2",
     "jw-paginate": "^1.0.4",
     "next": "10.2.3",
