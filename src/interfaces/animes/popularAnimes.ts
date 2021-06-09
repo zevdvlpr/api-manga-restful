@@ -1,4 +1,4 @@
-export interface AllPopular {
+export interface PopularAnimes {
   id: string;
   category: {
     name: string;
