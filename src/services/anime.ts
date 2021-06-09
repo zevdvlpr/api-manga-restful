@@ -11,7 +11,7 @@ import { PaginationArgs as IPaginationArgs } from '../interfaces/animes/paginati
 import { AnimesData as IAnimesData } from '../interfaces/animes/animesData';
 
 import { AllAnimes as IAllAnimes } from '../interfaces/animes/allAnimes';
-import { AllPopular as IAllPopular } from '../interfaces/animes/allPopular';
+import { PopularAnimes as IPopularAnimes } from '../interfaces/animes/popularAnimes';
 import { RecentAnimes as IRecentAnimes } from '../interfaces/animes/recentAnimes';
 
 async function request<T = any>(query = {}): Promise<T> {
@@ -77,8 +77,8 @@ export async function getPopular({
   currentPage,
   pageSize,
   maxPages,
-}: IPaginationArgs): Promise<IAnimesData<IAllPopular[]>> {
-  return await list<IAllPopular[]>(
+}: IPaginationArgs): Promise<IAnimesData<IPopularAnimes[]>> {
+  return await list<IPopularAnimes[]>(
     'popular',
     {
       currentPage,
