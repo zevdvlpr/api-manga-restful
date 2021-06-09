@@ -3,7 +3,8 @@ import { ApolloServer } from 'apollo-server-micro';
 import { schema } from '@lib/apollo/shema';
 
 const apolloServer = new ApolloServer({
-  schema
+  playground: true,
+  schema,
 });
 
 export const config = {
