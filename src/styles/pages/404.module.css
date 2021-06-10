@@ -1,0 +1,18 @@
+.container {
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+}
+
+.content h3 {
+  margin-bottom: 8px;
+}
+
+.content a {
+  color: #f83c3c;
+}
