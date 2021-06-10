@@ -7,7 +7,7 @@ export default function Home() {
         <h3>Route not found</h3>
 
         <p>
-          <a href="/" target="_blank" rel="noopener noreferrer">
+          <a href="https://docs.animeline.ml/" target="_blank" rel="noopener noreferrer">
             Click here
           </a>{' '}
           to access documentation.
