@@ -8,32 +8,17 @@ type ListArgs = {
 
 export const resolvers = {
   Query: {
-    async allAnimes(
-      _parent: any,
-      { currentPage, pageSize, maxPages }: ListArgs,
-      _context: any,
-      _info: any,
-    ) {
+    async allAnimes(_, { currentPage, pageSize, maxPages }: ListArgs) {
       const response = await getAll({ currentPage, pageSize, maxPages });
 
       return response;
     },
-    async recentAnimes(
-      _parent: any,
-      { currentPage, pageSize, maxPages }: ListArgs,
-      _context: any,
-      _info: any,
-    ) {
+    async recentAnimes(_, { currentPage, pageSize, maxPages }: ListArgs) {
       const response = await getRecents({ currentPage, pageSize, maxPages });
 
       return response;
     },
-    async popularAnimes(
-      _parent: any,
-      { currentPage, pageSize, maxPages }: ListArgs,
-      _context: any,
-      _info: any,
-    ) {
+    async popularAnimes(_, { currentPage, pageSize, maxPages }: ListArgs) {
       const response = await getPopular({ currentPage, pageSize, maxPages });
 
       return response;
