@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getRecents } from '../../../services/anime';
+import { getRecents } from '@services/anime';
 
 export default async function Recents(
   req: NextApiRequest,

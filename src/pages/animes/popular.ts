@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getPopular } from '../../../services/anime';
+import { getPopular } from '@services/anime';
 
 export default async function Popular(
   req: NextApiRequest,

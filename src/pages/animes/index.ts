@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getAll } from '../../../services/anime';
+import { getAll } from '@services/anime';
 
 export default async function Animes(
   req: NextApiRequest,
