@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@apollo/client": "3.3.20",
-    "apollo-server-micro": "3.0.0",
     "graphql": "15.5.1",
     "jw-paginate": "^1.0.4",
     "merge-graphql-schemas": "^1.7.8",
