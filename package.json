@@ -14,13 +14,11 @@
     "jw-paginate": "^1.0.4",
     "merge-graphql-schemas": "^1.7.8",
     "next": "11.0.1",
-    "node-fetch": "^2.6.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@types/node": "^15.6.1",
-    "@types/node-fetch": "2.5.11",
     "@types/react": "17.0.14",
     "typescript": "4.3.5"
   }
