@@ -1,0 +1,36 @@
+import { NextApiRequest, NextApiResponse } from 'next';
+
+import { getAnimesByLetter } from '@services/animeTv';
+
+export default async function Letters(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  try {
+    if (req.method === 'GET') {
+      const { letter, currentPage, pageSize, maxPages } = req.query;
+
+      if (!letter) {
+        return res.json({
+          message: 'The query "letter" has not been defined.',
+        });
+      }
+
+      const pagination = {
+        currentPage: Number(currentPage) || 1,
+        pageSize: Number(pageSize) || 12,
+        maxPages: Number(maxPages) || 12,
+      };
+
+      const response = await getAnimesByLetter(String(letter), pagination);
+
+      res.setHeader('x-total-count', response.totalItems);
+
+      return res.send(response);
+    }
+  } catch (error) {
+    if (error.message === 'Category not found.') {
+      return res.json({ error: error.message });
+    }
+  }
+}
