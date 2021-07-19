@@ -6,8 +6,8 @@ export default async function Category(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  try {
-    if (req.method === 'GET') {
+  if (req.method === 'GET') {
+    try {
       const { name, currentPage, pageSize, maxPages } = req.query;
 
       if (!name) {
@@ -25,10 +25,10 @@ export default async function Category(
       res.setHeader('x-total-count', response.totalItems);
 
       return res.send(response);
+    } catch (error) {
+      return res.json({ message: error.message });
     }
-  } catch (error) {
-    if (error.message === 'Category not found.') {
-      return res.json({ error: error.message });
-    }
+  } else {
+    return res.status(405).json({ message: 'Method not allowed.' });
   }
 }

@@ -20,5 +20,7 @@ export default async function Recents(
     res.setHeader('x-total-count', response.totalItems);
 
     return res.send(response);
+  } else {
+    return res.status(405).json({ message: 'Method not allowed.' });
   }
 }
