@@ -9,5 +9,9 @@ import { getList } from './getList';
 export async function getPopularAnimes(
   pagination: IPaginationArgs,
 ): Promise<TAnimesData<IGetPopularAnimes[]>> {
-  return await getList<IGetPopularAnimes[]>('popular', pagination);
+  const params = {
+    populares: '',
+  };
+
+  return await getList<IGetPopularAnimes[]>('popular', pagination, params);
 }

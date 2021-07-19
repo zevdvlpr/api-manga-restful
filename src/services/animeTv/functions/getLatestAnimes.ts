@@ -9,5 +9,9 @@ import { getList } from './getList';
 export async function getLatestAnimes(
   pagination: IPaginationArgs,
 ): Promise<TAnimesData<IGetLatestAnimes[]>> {
-  return await getList<IGetLatestAnimes[]>('latest', pagination);
+  const params = {
+    latest: '',
+  };
+
+  return await getList<IGetLatestAnimes[]>('latest', pagination, params);
 }
