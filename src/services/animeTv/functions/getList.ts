@@ -1,6 +1,8 @@
 import { AxiosRequestConfig } from 'axios';
 import paginate from 'jw-paginate';
 
+import { streamingDataR } from '../utils';
+
 import { ListModel } from '../models/ListModel';
 
 import { TListType } from '../interfaces/listType';
@@ -10,36 +12,18 @@ import { TAnimesData } from '../interfaces/animesData';
 
 import { api } from '../api';
 
-const allowedQueries = { all: '', latest: '', popular: '' };
-const updateQueries = { popular: 'populares' };
-
-function changeKeyName(type: string) {
-  const [_oldName, newName] = Object.entries(updateQueries).find(
-    ([name]) => name === type,
-  );
-
-  return { [newName]: '' };
-}
-
-function getParams(type: TListType, params: AxiosRequestConfig['params']) {
-  const query = Object.entries(allowedQueries).find(([name]) => name === type);
-
-  if (!query) return { ...params };
-
-  if (Object.entries(updateQueries).find(([name]) => name === type)) {
-    return changeKeyName(type);
-  }
-
-  return { [query[0]]: query[1] };
-}
-
 export async function getList<T = any>(
   type: TListType,
   pagination: IPaginationArgs = { currentPage: 1, pageSize: 12, maxPages: 12 },
   params: AxiosRequestConfig['params'] = {},
 ): Promise<TAnimesData<T>> {
+  const dataR = streamingDataR();
+
   const response = await api.get('/meuanimetv-40.php', {
-    params: getParams(type, params),
+    params: {
+      ...params,
+      ...dataR,
+    },
   });
 
   if (response.data === null) {
