@@ -4,14 +4,14 @@ import { IPaginationArgs } from '../interfaces/paginationArgs';
 
 import { TAnimesData } from '../interfaces/animesData';
 
-import { IGetAnimesByCategory } from '../interfaces/functions/getAnimesByCategory';
+import { IAnimesByCategory } from '../interfaces/functions/animesByCategory';
 
 import { getList } from './getList';
 
-export async function getAnimesByCategory(
+export async function animesByCategory(
   categoryName: string,
   pagination: IPaginationArgs,
-): Promise<TAnimesData<IGetAnimesByCategory[]>> {
+): Promise<TAnimesData<IAnimesByCategory[]>> {
   const params = {
     categoria: categoryName,
   };
@@ -20,9 +20,5 @@ export async function getAnimesByCategory(
     throw new Error('Category not found.');
   }
 
-  return await getList<IGetAnimesByCategory[]>(
-    'categories',
-    pagination,
-    params,
-  );
+  return await getList<IAnimesByCategory[]>('categories', pagination, params);
 }
