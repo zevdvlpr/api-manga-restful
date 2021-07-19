@@ -15,7 +15,8 @@ export class ListModel {
       type === 'all' ||
       type === 'popular' ||
       type === 'categories' ||
-      type === 'letters'
+      type === 'letters' ||
+      type === 'search'
     ) {
       this.id = data.id;
       this.category_name = data.category_name;

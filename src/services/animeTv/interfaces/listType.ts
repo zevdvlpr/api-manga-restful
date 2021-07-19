@@ -1,1 +1,7 @@
-export type TListType = 'all' | 'latest' | 'popular' | 'categories' | 'letters';
+export type TListType =
+  | 'all'
+  | 'latest'
+  | 'popular'
+  | 'categories'
+  | 'letters'
+  | 'search';
