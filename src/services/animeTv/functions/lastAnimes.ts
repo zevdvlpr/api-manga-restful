@@ -2,16 +2,16 @@ import { IPaginationArgs } from '../interfaces/paginationArgs';
 
 import { TAnimesData } from '../interfaces/animesData';
 
-import { IGetLatestAnimes } from '../interfaces/functions/getLatestAnimes';
+import { ILastAnimes } from '../interfaces/functions/lastAnimes';
 
 import { getList } from './getList';
 
-export async function getLatestAnimes(
+export async function lastAnimes(
   pagination: IPaginationArgs,
-): Promise<TAnimesData<IGetLatestAnimes[]>> {
+): Promise<TAnimesData<ILastAnimes[]>> {
   const params = {
     latest: '',
   };
 
-  return await getList<IGetLatestAnimes[]>('latest', pagination, params);
+  return await getList<ILastAnimes[]>('latest', pagination, params);
 }
