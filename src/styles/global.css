@@ -8,3 +8,11 @@
 *, button {
   font-family: sans-serif;
 }
+
+p {
+  display: flex;
+}
+
+ion-item {
+  display: flex;
+}
