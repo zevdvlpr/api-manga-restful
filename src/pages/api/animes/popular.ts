@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getPopularAnimes } from '@services/animeTv';
+import { popularAnimes } from '@services/animeTv';
 
-export default async function Popular(
+export default async function PopularAnimes(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
@@ -15,7 +15,7 @@ export default async function Popular(
       maxPages: Number(maxPages) || 12,
     };
 
-    const response = await getPopularAnimes(pagination);
+    const response = await popularAnimes(pagination);
 
     res.setHeader('x-total-count', response.totalItems);
 
