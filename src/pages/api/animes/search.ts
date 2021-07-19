@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getAnimeByName } from '@services/animeTv';
+import { searchAnime } from '@services/animeTv';
 
-export default async function Category(
+export default async function SearchAnime(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
@@ -20,7 +20,7 @@ export default async function Category(
         maxPages: Number(maxPages) || 12,
       };
 
-      const response = await getAnimeByName(String(name), pagination);
+      const response = await searchAnime(String(name), pagination);
 
       res.setHeader('x-total-count', response.totalItems);
 
