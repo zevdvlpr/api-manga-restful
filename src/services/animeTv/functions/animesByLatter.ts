@@ -2,14 +2,14 @@ import { IPaginationArgs } from '../interfaces/paginationArgs';
 
 import { TAnimesData } from '../interfaces/animesData';
 
-import { IGetAnimesByLetter } from '../interfaces/functions/getAnimesByLetter';
+import { IAnimesByLetter } from '../interfaces/functions/animesByLatter';
 
 import { getList } from './getList';
 
-export async function getAnimesByLetter(
+export async function animesByLatter(
   letter: string,
   pagination: IPaginationArgs,
-): Promise<TAnimesData<IGetAnimesByLetter[]>> {
+): Promise<TAnimesData<IAnimesByLetter[]>> {
   const params = {
     letra: letter,
   };
@@ -18,5 +18,5 @@ export async function getAnimesByLetter(
   //   throw new Error('Invalid character.');
   // }
 
-  return await getList<IGetAnimesByLetter[]>('letters', pagination, params);
+  return await getList<IAnimesByLetter[]>('letters', pagination, params);
 }

@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { getAnimesByLetter } from '@services/animeTv';
+import { animesByLatter } from '@services/animeTv';
 
-export default async function Letters(
+export default async function AnimesByLatter(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
@@ -22,7 +22,7 @@ export default async function Letters(
         maxPages: Number(maxPages) || 12,
       };
 
-      const response = await getAnimesByLetter(String(letter), pagination);
+      const response = await animesByLatter(String(letter), pagination);
 
       res.setHeader('x-total-count', response.totalItems);
 
