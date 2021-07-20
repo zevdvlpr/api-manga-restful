@@ -12,7 +12,7 @@ import { TAnimesData } from '../interfaces/animesData';
 
 import { api } from '../api';
 
-export async function getList<T = any>(
+export async function list<T = any>(
   type: TListType,
   pagination: IPaginationArgs = { currentPage: 1, pageSize: 12, maxPages: 12 },
   params: AxiosRequestConfig['params'] = {},

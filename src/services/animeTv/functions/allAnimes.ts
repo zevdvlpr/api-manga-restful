@@ -4,10 +4,10 @@ import { TAnimesData } from '../interfaces/animesData';
 
 import { IAllAnimes } from '../interfaces/functions/allAnimes';
 
-import { getList } from './getList';
+import { list } from './list';
 
 export async function allAnimes(
   pagination: IPaginationArgs,
 ): Promise<TAnimesData<IAllAnimes[]>> {
-  return await getList<IAllAnimes[]>('all', pagination);
+  return await list<IAllAnimes[]>('all', pagination);
 }

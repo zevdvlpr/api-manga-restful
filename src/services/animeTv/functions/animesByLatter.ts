@@ -4,7 +4,7 @@ import { TAnimesData } from '../interfaces/animesData';
 
 import { IAnimesByLetter } from '../interfaces/functions/animesByLatter';
 
-import { getList } from './getList';
+import { list } from './list';
 
 export async function animesByLatter(
   letter: string,
@@ -18,5 +18,5 @@ export async function animesByLatter(
   //   throw new Error('Invalid character.');
   // }
 
-  return await getList<IAnimesByLetter[]>('letters', pagination, params);
+  return await list<IAnimesByLetter[]>('letters', pagination, params);
 }

@@ -1,6 +1,6 @@
 export { calendary } from './calendary';
 
-export { getList } from './getList';
+export { list } from './list';
 
 export { allAnimes } from './allAnimes';
 export { animesByCategory } from './animesByCategory';

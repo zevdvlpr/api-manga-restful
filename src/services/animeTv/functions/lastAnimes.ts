@@ -4,7 +4,7 @@ import { TAnimesData } from '../interfaces/animesData';
 
 import { ILastAnimes } from '../interfaces/functions/lastAnimes';
 
-import { getList } from './getList';
+import { list } from './list';
 
 export async function lastAnimes(
   pagination: IPaginationArgs,
@@ -13,5 +13,5 @@ export async function lastAnimes(
     latest: '',
   };
 
-  return await getList<ILastAnimes[]>('latest', pagination, params);
+  return await list<ILastAnimes[]>('latest', pagination, params);
 }

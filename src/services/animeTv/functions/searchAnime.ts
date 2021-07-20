@@ -4,7 +4,7 @@ import { TAnimesData } from '../interfaces/animesData';
 
 import { ISearchAnime } from '../interfaces/functions/searchAnime';
 
-import { getList } from './getList';
+import { list } from './list';
 
 export async function searchAnime(
   animeName: string,
@@ -14,5 +14,5 @@ export async function searchAnime(
     search: animeName,
   };
 
-  return await getList<ISearchAnime[]>('search', pagination, params);
+  return await list<ISearchAnime[]>('search', pagination, params);
 }

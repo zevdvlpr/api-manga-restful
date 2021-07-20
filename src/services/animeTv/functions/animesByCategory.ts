@@ -6,7 +6,7 @@ import { TAnimesData } from '../interfaces/animesData';
 
 import { IAnimesByCategory } from '../interfaces/functions/animesByCategory';
 
-import { getList } from './getList';
+import { list } from './list';
 
 export async function animesByCategory(
   categoryName: string,
@@ -20,5 +20,5 @@ export async function animesByCategory(
     throw new Error('Category not found.');
   }
 
-  return await getList<IAnimesByCategory[]>('categories', pagination, params);
+  return await list<IAnimesByCategory[]>('categories', pagination, params);
 }

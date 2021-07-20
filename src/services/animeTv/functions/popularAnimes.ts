@@ -4,7 +4,7 @@ import { TAnimesData } from '../interfaces/animesData';
 
 import { IPopularAnimes } from '../interfaces/functions/popularAnimes';
 
-import { getList } from './getList';
+import { list } from './list';
 
 export async function popularAnimes(
   pagination: IPaginationArgs,
@@ -13,5 +13,5 @@ export async function popularAnimes(
     populares: '',
   };
 
-  return await getList<IPopularAnimes[]>('popular', pagination, params);
+  return await list<IPopularAnimes[]>('popular', pagination, params);
 }
