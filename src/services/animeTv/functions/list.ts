@@ -1,6 +1,8 @@
 import { AxiosRequestConfig } from 'axios';
 import paginate from 'jw-paginate';
 
+import { ANIME_TV_API_ROUTE } from '@config/urls';
+
 import { streamingDataR } from '../utils';
 
 import { ListModel } from '../models/ListModel';
@@ -19,7 +21,7 @@ export async function list<T = any>(
 ): Promise<TAnimesData<T>> {
   const dataR = streamingDataR();
 
-  const response = await api.get('/meuanimetv-40.php', {
+  const response = await api.get(ANIME_TV_API_ROUTE, {
     params: {
       ...params,
       ...dataR,

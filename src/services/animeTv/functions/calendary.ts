@@ -1,3 +1,5 @@
+import { ANIME_TV_API_ROUTE } from '@config/urls';
+
 import { ICalendary } from '../interfaces/functions/calendary';
 
 import { api } from '../api';
@@ -40,13 +42,9 @@ function parseResults(html: string) {
 }
 
 export async function calendary(): Promise<ICalendary[]> {
-  const {
-    data: { msg },
-  } = await api.get('/meuanimetv-40.php', {
-    params: {
-      calendario: '',
-    },
-  });
+  const params = { calendario: '' };
 
-  return parseResults(msg);
+  const { data } = await api.get(ANIME_TV_API_ROUTE, { params });
+
+  return parseResults(data.msg);
 }
