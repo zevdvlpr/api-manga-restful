@@ -19,7 +19,7 @@ export default async function LastAnimes(
 
     res.setHeader('x-total-count', response.totalItems);
 
-    return res.send(response);
+    return res.json(response);
   } else {
     return res.status(405).json({ message: 'Method not allowed.' });
   }
