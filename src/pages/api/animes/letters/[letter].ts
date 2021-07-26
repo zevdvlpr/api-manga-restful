@@ -1,18 +1,14 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { animesByCategory } from '@services/animeTv';
+import { animesByLatter } from '@services/animeTv';
 
-export default async function AnimesByCategory(
+export default async function AnimesByLatter(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
   if (req.method === 'GET') {
     try {
-      const { name, currentPage, pageSize, maxPages } = req.query;
-
-      if (!name) {
-        return res.json({ message: 'The query "name" has not been defined.' });
-      }
+      const { letter, currentPage, pageSize, maxPages } = req.query;
 
       const pagination = {
         currentPage: Number(currentPage) || 1,
@@ -20,11 +16,11 @@ export default async function AnimesByCategory(
         maxPages: Number(maxPages) || 12,
       };
 
-      const response = await animesByCategory(String(name), pagination);
+      const response = await animesByLatter(String(letter), pagination);
 
       res.setHeader('x-total-count', response.totalItems);
 
-      return res.send(response);
+      return res.json(response);
     } catch (error) {
       return res.json({ message: error.message });
     }

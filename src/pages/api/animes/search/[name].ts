@@ -10,10 +10,6 @@ export default async function SearchAnime(
     try {
       const { name, currentPage, pageSize, maxPages } = req.query;
 
-      if (!name) {
-        return res.json({ message: 'The query "name" has not been defined.' });
-      }
-
       const pagination = {
         currentPage: Number(currentPage) || 1,
         pageSize: Number(pageSize) || 12,
@@ -24,7 +20,7 @@ export default async function SearchAnime(
 
       res.setHeader('x-total-count', response.totalItems);
 
-      return res.send(response);
+      return res.json(response);
     } catch (error) {
       return res.json({ message: error.message });
     }
