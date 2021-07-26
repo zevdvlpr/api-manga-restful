@@ -39,12 +39,10 @@ export async function list<T = any>(
     pagination.maxPages,
   );
 
-  const data = {
+  return {
     ...pager,
     data: response.data
       .slice(pager.startIndex, pager.endIndex + 1)
       .map(anime => new ListModel(type, anime)),
   };
-
-  return data;
 }
