@@ -10,7 +10,7 @@ export async function authHeaders() {
   try {
     const authFile = await readAuthFile();
 
-    const response = await axios.post(ANIME_TV_AUTH_URL, authFile, {
+    const response = await axios.post<string>(ANIME_TV_AUTH_URL, authFile, {
       headers: {
         'host': ANIME_TV_AUTH_URL.replace(/(^\w+:|^)\/\//, ''),
         'user-agent': selectUserAgent(),
